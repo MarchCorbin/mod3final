@@ -12,7 +12,11 @@ export class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = async() => {
+   await getUrls()
+  //  .then(data => console.log(data.urls))
+    .then(data => this.setState({urls: data.urls}))
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -23,7 +27,7 @@ export class App extends Component {
           <UrlForm />
         </header>
 
-        <UrlContainer urls={this.state.urls}/>
+        <UrlContainer urls={this.state.urls} />
       </main>
     );
   }
