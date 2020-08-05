@@ -13,3 +13,11 @@ export const postURL = (postInput) => {
     body: JSON.stringify(postInput)
   })
 }
+
+export const deleteUrl = async (id) => {
+  const response = await fetch(`http://localhost:3001/api/v1/urls/${id}`, {
+    method: "DELETE",
+  });
+  const data = await response;
+  return data;
+};
